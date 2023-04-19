@@ -1,0 +1,53 @@
+{
+  "Routes": [
+    {
+      "SwaggerKey": "test",
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "HOST",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/test/{everything}",
+      "UpstreamHttpMethod": [
+        "Options",
+        "Head",
+        "Get",
+        "Post",
+        "Put",
+        "Patch",
+        "Delete"
+      ],
+      "RouteIsCaseSensitive": false,
+      "DangerousAcceptAnyServerCertificateValidator": true,
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Admin",
+        "AllowedScopes": []
+      }
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "BASEURL",
+    "ServiceDiscoveryProvider": {
+      "Namespace": "Namespace",
+      "Type": "kube"
+    }
+  },
+  "SwaggerEndPoints": [
+    {
+      "Key": "test",
+      "Config": [
+        {
+          "Name": "Test API",
+          "Version": "v1",
+          "Service": {
+            "Name": "test",
+            "Path": "/swagger/docs/v1/swagger.json"
+          }
+        }
+      ]
+    }
+  ]
+}
